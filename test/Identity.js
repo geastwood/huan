@@ -1,9 +1,10 @@
 var Identity = require('../lib/Identity');
 var util = require('../lib/util');
-var makeType = util.makeType;
-var of = util.of;
-var map = util.map;
-var ap = util.ap;
+var fp = require('../lib/fp');
+var makeType = fp.makeType;
+var of = fp.of;
+var map = fp.map;
+var ap = fp.ap;
 var compose = util.compose;
 var curry = require('lodash').curry;
 var sum = add = curry(function(a, b) {
@@ -15,16 +16,16 @@ var length = function(v) {
 var add1 = sum(1);
 
 exports.makeType = function(t) {
-  t.deepEqual(util.makeType(Identity, 42), {value: 42});
-  t.deepEqual(map(length, util.makeType(Identity, 'fei')), {value: 3});
+  t.deepEqual(fp.makeType(Identity, 42), {value: 42});
+  t.deepEqual(map(length, fp.makeType(Identity, 'fei')), {value: 3});
   t.done();
 };
 
 exports.compose = function(t) {
-  t.deepEqual(map(add1, map(length, util.makeType(Identity, 'fei'))), {value: 4});
+  t.deepEqual(map(add1, map(length, fp.makeType(Identity, 'fei'))), {value: 4});
   t.deepEqual(compose(map(function(v) {
     return v / 2;
-  }), map(add1), map(length))(util.makeType(Identity, 'fei')), {value: 2});
+  }), map(add1), map(length))(fp.makeType(Identity, 'fei')), {value: 2});
   t.done();
 };
 
@@ -34,7 +35,7 @@ exports['ap+compose'] = function(t) {
   t.deepEqual(
     compose(
       map(add1),
-      util.liftA2(add, Identity.of(10)),
+      fp.liftA2(add, Identity.of(10)),
       of(Identity)
     )(15),
 
