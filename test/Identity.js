@@ -43,7 +43,8 @@ exports['ap+compose'] = function(t) {
 };
 
 exports.of = function(t) {
-  var tmpFn = function() { };
+  var tmpFn = function() {
+  };
   t.deepEqual(Identity.of(42), {value: 42});
   t.deepEqual(Identity.of(tmpFn), {value: tmpFn});
   t.done();

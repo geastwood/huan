@@ -66,11 +66,11 @@ exports.groupBy = function(t) {
 
 exports['groupBy - key fn return undefined'] = function(t) {
   var data1 = [
-      {id: 1, name: 'fei'},
-      {id: 1, name: 'fei'},
-      {id: 1, name: 'fei'},
-      {id: 2, name: 'fei'}
-    ];
+    {id: 1, name: 'fei'},
+    {id: 1, name: 'fei'},
+    {id: 1, name: 'fei'},
+    {id: 2, name: 'fei'}
+  ];
   t.deepEqual(arr.groupBy(id1, data1),
     {
       '@@error': [
