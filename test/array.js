@@ -2,9 +2,10 @@ var arr = require('../lib/array');
 var huan = require('../lib/huan');
 var Maybe = require('../lib/instance/Maybe').Maybe;
 var get = huan.get;
-var id = Maybe.of(get('id'));
-var id1 = Maybe.of(get('id1'));
-var name = Maybe.of(get('name'));
+
+var id = get('id');
+var id1 = get('id1');
+var name = get('name');
 
 exports.groupBy = function(t) {
 
