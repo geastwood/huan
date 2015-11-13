@@ -8,6 +8,7 @@ export var get = curry((prop, obj) => Maybe.of(obj[prop]));
 
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));
+export var reduce = curry((acc, init, xs) => xs.reduce(acc, init));
 export var ap = curry((u, v) => u.ap(v));
 export var extract = m => m.extract();
 

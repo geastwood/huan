@@ -1,6 +1,6 @@
 import {curry} from 'lodash';
 import Id from './instance/identity';
-import {ifNothing, map, compose, contains, extract} from './huan';
+import {ifNothing, map, compose, contains, reduce} from './huan';
 
 export var groupBy = curry((f, xs) => {
   var ls = [],
@@ -15,7 +15,10 @@ export var groupBy = curry((f, xs) => {
       return rst;
     });
 
-  // a -> Maybe -> a -> b
-  return xs.reduce((rst, x) => compose(branch(rst, x), ifNothing('@@error'), f)(x), {});
+  return reduce(
+    (rst, x) => compose(branch(rst, x), ifNothing('@@error'), f)(x),
+    {},
+    xs
+  );
 });
 
