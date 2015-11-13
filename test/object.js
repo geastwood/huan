@@ -1,8 +1,7 @@
 var obj = require('../lib/object');
 
 exports.values = function(t) {
-  t.deepEqual(['fei', 20], obj.values({name: 'fei', age: 20}));
-  t.deepEqual({value: ['fei', 20]}, obj.values_fp({name: 'fei', age: 20}));
+  t.deepEqual({value: ['fei', 20, (void 0)]}, obj.values({name: 'fei', age: 20, prop: undefined}));
   t.done();
 };
 

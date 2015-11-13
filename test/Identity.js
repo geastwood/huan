@@ -1,11 +1,10 @@
-var Identity = require('../lib/Identity');
-var util = require('../lib/util');
-var fp = require('../lib/fp');
+var Identity = require('../lib/instance/Identity');
+var fp = require('../lib/huan');
 var makeType = fp.makeType;
 var of = fp.of;
 var map = fp.map;
 var ap = fp.ap;
-var compose = util.compose;
+var compose = fp.compose;
 var curry = require('lodash').curry;
 var sum = add = curry(function(a, b) {
   return a + b;
