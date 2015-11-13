@@ -1,7 +1,7 @@
-var arr = require('../lib/array');
-var huan = require('../lib/huan');
+var arr = require('../lib/');
+var fp = require('../lib/fp');
 var Maybe = require('../lib/instance/Maybe').Maybe;
-var get = huan.get;
+var get = fp.get;
 
 var id = get('id');
 var id1 = get('id1');

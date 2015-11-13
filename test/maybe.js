@@ -1,7 +1,7 @@
 var m = require('../lib/instance/Maybe');
 var Maybe = m.Maybe;
-var huan = require('../lib/huan');
-var map = huan.map;
+var fp = require('../lib/fp');
+var map = fp.map;
 
 var always = function(v) {
   return function() {
@@ -15,7 +15,7 @@ exports.maybe = function(t) {
   var shouldChange = 1;
   t.deepEqual(map(v => v + 1)(v), {value: 2});
   t.deepEqual(map(v => v + 1)(v1), {value: null});
-  t.deepEqual(huan.compose(
+  t.deepEqual(fp.compose(
     map(v => {
       shouldChange++; // this is not run when previous step returns null / undefined
       return v + 2;

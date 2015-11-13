@@ -1,6 +1,6 @@
 import {curry} from 'lodash';
 import Id from './instance/identity';
-import {ifNothing, map, compose, contains, reduce} from './huan';
+import {ifNothing, map, compose, contains, reduce} from './fp';
 
 export var groupBy = curry((f, xs) => {
   var ls = [],

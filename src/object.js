@@ -1,5 +1,5 @@
 import {curry} from 'lodash';
-import {of, liftA3, makeType, compose, concat, id} from './huan';
+import {of, liftA3, makeType, compose, concat, id} from './fp';
 import Identity from './instance/Identity';
 
 var o2a = curry(function(convert, connect, obj) {
