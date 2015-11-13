@@ -8,12 +8,13 @@ export var get = curry((prop, obj) => obj[prop]);
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));
 export var ap = curry((u, v) => u.ap(v));
+export var extract = m => m.extract();
 
 export var ifNothing = curry((v, m) => {
   if (String(m) === 'Nothing') {
     return v;
   }
-  return m.value;
+  return m.extract();
 });
 
 export var liftA2 = curry((f, x, y) => x.map(f).ap(y));

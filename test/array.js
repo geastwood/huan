@@ -1,10 +1,12 @@
 var arr = require('../lib/array');
 var huan = require('../lib/huan');
+var Maybe = require('../lib/instance/Maybe').Maybe;
 var get = huan.get;
+var id = Maybe.of(get('id'));
+var id1 = Maybe.of(get('id1'));
+var name = Maybe.of(get('name'));
 
 exports.groupBy = function(t) {
-  var id = get('id'),
-    name = get('name');
 
   t.deepEqual(arr.groupBy(id, [
       {id: 1, name: 'fei'},
@@ -67,10 +69,8 @@ exports['groupBy - key fn return undefined'] = function(t) {
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
       {id: 2, name: 'fei'}
-    ],
-    id = get('id1');
-
-  t.deepEqual(arr.groupBy(id, data1),
+    ];
+  t.deepEqual(arr.groupBy(id1, data1),
     {
       '@@error': [
         {id: 1, name: 'fei'},

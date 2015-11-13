@@ -1,9 +1,4 @@
-var inherit = function(parent, child) {
-  var f = function() {};
-  f.prototype = parent.prototype;
-  child.prototype = new f();
-  return child;
-};
+import {inherit} from '../util';
 
 export var Maybe = function(v) {
   if (v == null) {
@@ -12,9 +7,7 @@ export var Maybe = function(v) {
   return new Just(v);
 };
 
-Maybe.of = function(v) {
-  return new Maybe(v);
-};
+Maybe.of = v => new Maybe(v);
 
 export var Just = inherit(Maybe, function(v) {
   this.value = v;
@@ -24,9 +17,16 @@ Just.prototype.map = function(f) {
   return new Maybe(f(this.value));
 };
 
+Just.prototype.extract = function() {
+  return this.value;
+};
+Just.prototype.ap = function(v) {
+  return new Maybe(this.value(v));
+};
+
 Just.prototype.toString = function() {
   return 'Just';
-}
+};
 
 export var Nothing = inherit(Maybe, function() {
   this.value = null;
@@ -35,8 +35,13 @@ export var Nothing = inherit(Maybe, function() {
 Nothing.prototype.map = function() {
   return new Nothing();
 };
+Nothing.prototype.ap = function() {
+  return this;
+};
+Nothing.prototype.extract = function() {
+  return null;
+};
 
 Nothing.prototype.toString = function() {
   return 'Nothing';
 }
-
