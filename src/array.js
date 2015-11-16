@@ -1,8 +1,7 @@
 import {curry} from 'lodash';
-import {mcompose, extract, chain, id, map, compose, contains, reduce} from './fp';
+import {mcompose, compose, contains, reduce} from './fp';
 import {Maybe} from './instance/Maybe';
 import Either from './instance/Either';
-import {debug} from './util';
 
 /**
  * (a -> String) -> [a] -> {String: [a]}
