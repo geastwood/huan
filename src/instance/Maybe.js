@@ -7,7 +7,12 @@ export var Maybe = function(v) {
   return new Just(v);
 };
 
-Maybe.of = v => new Maybe(v);
+Maybe.of = v => {
+  if (v instanceof Maybe) {
+    return v;
+  }
+  return new Maybe(v);
+}
 
 export var Just = inherit(Maybe, function(v) {
   this.value = v;

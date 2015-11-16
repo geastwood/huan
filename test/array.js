@@ -1,11 +1,11 @@
 var arr = require('../lib/');
 var fp = require('../lib/fp');
 var Maybe = require('../lib/instance/Maybe').Maybe;
-var get = fp.get;
+var prop = fp.prop;
 
-var id = get('id');
-var id1 = get('id1');
-var name = get('name');
+var id = prop('id');
+var id1 = prop('id1');
+var name = prop('name');
 
 exports.groupBy = function(t) {
 
@@ -81,5 +81,45 @@ exports['groupBy - key fn return undefined'] = function(t) {
       ]
     }
   );
+  t.done();
+};
+
+exports['groupBy-again'] = function(t) {
+  var data = [
+      {name: 'Abby', score: 84},
+      {name: 'Eddy', score: 58},
+      {name: 'Fei', score: 68},
+      {name: 'Jack', score: 69}
+    ],
+    languages = [
+      {name: 'js'}, {name: 'php'}, {name: 'scala'}, {name: 'haskell'}
+    ];
+
+  t.deepEqual(arr.groupBy((function(student) {
+      var score = student.score;
+      return (score < 65 ? 'F' :
+        score < 70 ? 'D' :
+          score < 80 ? 'C' :
+            score < 90 ? 'B' : 'A');
+    }), data),
+    {
+      B: [{name: 'Abby', score: 84}],
+      F: [{name: 'Eddy', score: 58}],
+      D: [{name: 'Fei', score: 68}, {name: 'Jack', score: 69}]
+    }
+  );
+
+  t.deepEqual(arr.groupBy(function(lang) {
+      if (lang.name === 'js' || lang.name === 'php') {
+        return 'not-typed'
+      }
+      return 'typed'
+    }, languages),
+    {
+      'not-typed': [{name: 'js'}, {name: 'php'}],
+      typed: [{name: 'scala'}, {name: 'haskell'}]
+    }
+  );
+
   t.done();
 };

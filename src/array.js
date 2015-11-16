@@ -1,7 +1,11 @@
 import {curry} from 'lodash';
 import Id from './instance/identity';
 import {ifNothing, map, compose, contains, reduce} from './fp';
+import {Maybe} from './instance/Maybe';
 
+/**
+ * (a -> String) -> [a] -> {String: [a]}
+ */
 export var groupBy = curry((f, xs) => {
   var ls = [],
     hasFn = contains(ls),
@@ -16,9 +20,8 @@ export var groupBy = curry((f, xs) => {
     });
 
   return reduce(
-    (rst, x) => compose(branch(rst, x), ifNothing('@@error'), f)(x),
+    (rst, x) => compose(branch(rst, x), ifNothing('@@error'), Maybe.of, f)(x),
     {},
     xs
   );
 });
-

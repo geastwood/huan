@@ -4,7 +4,7 @@ import {Maybe} from './instance/Maybe';
 export var concat = curry((a, b) => a.concat(b));
 export var id = v => v;
 export var compose = (...fns) => v => fns.reduceRight((carry, fn) => fn(carry), v);
-export var get = curry((prop, obj) => Maybe.of(obj[prop]));
+export var prop = curry((prop, obj) => Maybe.of(obj[prop]));
 
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));
