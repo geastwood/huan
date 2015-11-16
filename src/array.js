@@ -1,7 +1,8 @@
 import {curry} from 'lodash';
-import Id from './instance/identity';
-import {ifNothing, map, compose, contains, reduce} from './fp';
+import {mcompose, extract, chain, id, map, compose, contains, reduce} from './fp';
 import {Maybe} from './instance/Maybe';
+import Either from './instance/Either';
+import {debug} from './util';
 
 /**
  * (a -> String) -> [a] -> {String: [a]}
@@ -20,7 +21,7 @@ export var groupBy = curry((f, xs) => {
     });
 
   return reduce(
-    (rst, x) => compose(branch(rst, x), ifNothing('@@error'), Maybe.of, f)(x),
+    (rst, x) => compose(branch(rst, x), mcompose(Either.of('@@error'), Maybe.of), f)(x),
     {},
     xs
   );

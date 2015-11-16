@@ -1,5 +1,5 @@
-var Identity = require('../lib/instance/Identity');
-var fp = require('../lib/fp');
+var Identity = require('../../lib/instance/Identity');
+var fp = require('../../lib/fp');
 var makeType = fp.makeType;
 var of = fp.of;
 var map = fp.map;

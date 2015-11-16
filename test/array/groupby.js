@@ -1,6 +1,6 @@
-var arr = require('../lib/');
-var fp = require('../lib/fp');
-var Maybe = require('../lib/instance/Maybe').Maybe;
+var arr = require('../../lib/');
+var fp = require('../../lib/fp');
+var Maybe = require('../../lib/instance/Maybe').Maybe;
 var prop = fp.prop;
 
 var id = prop('id');
@@ -93,7 +93,14 @@ exports['groupBy-again'] = function(t) {
     ],
     languages = [
       {name: 'js'}, {name: 'php'}, {name: 'scala'}, {name: 'haskell'}
-    ];
+    ],
+    getStore = function(student) {
+      var score = student.score;
+      return (score < 65 ? 'F' :
+        score < 70 ? 'D' :
+          score < 80 ? 'C' :
+            score < 90 ? 'B' : 'A');
+    };
 
   t.deepEqual(arr.groupBy((function(student) {
       var score = student.score;
@@ -102,6 +109,15 @@ exports['groupBy-again'] = function(t) {
           score < 80 ? 'C' :
             score < 90 ? 'B' : 'A');
     }), data),
+    {
+      B: [{name: 'Abby', score: 84}],
+      F: [{name: 'Eddy', score: 58}],
+      D: [{name: 'Fei', score: 68}, {name: 'Jack', score: 69}]
+    }
+  );
+
+  // test curry of group by
+  t.deepEqual(arr.groupBy(getStore)(data),
     {
       B: [{name: 'Abby', score: 84}],
       F: [{name: 'Eddy', score: 58}],

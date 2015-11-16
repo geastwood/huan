@@ -10,6 +10,10 @@ export default class Identity {
   ap(v) {
     return new Identity(this.value(v.value));
   }
+
+  extract() {
+    return this.value;
+  }
 }
 
 Identity.of = v => new Identity(v);
