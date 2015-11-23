@@ -1,14 +1,23 @@
 import {curry} from 'lodash';
 import {Maybe} from './instance/Maybe';
 
+/**
+ * [a] -> [a] -> [a]
+ */
 export var concat = curry((a, b) => a.concat(b));
+
+/**
+ * a -> a
+ */
 export var id = v => v;
+
 export var compose = (...fns) => v => fns.reduceRight((carry, fn) => fn(carry), v);
 export var mcompose = (...fns) => v => {
   return fns.reduceRight((carry, fn) => {
     return compose(extract, fn)(carry);
   }, v)
 };
+
 export var prop = curry((prop, obj) => Maybe.of(obj[prop]));
 
 export var of = x => x.of;
