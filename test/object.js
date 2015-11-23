@@ -1,7 +1,28 @@
 var obj = require('../lib/object');
+var fp = require('../lib/fp');
 
 exports.values = function(t) {
-  t.deepEqual({value: ['fei', 20, (void 0)]}, obj.values({name: 'fei', age: 20, prop: undefined}));
+  t.deepEqual(obj.values({
+    name: 'fei',
+    knows: 'js',
+    nothing: (void 0)
+  }), ['fei', 'js', undefined]);
+  t.done();
+};
+
+exports.valueIf = function(t) {
+  var obj = {};
+  t.done();
+};
+
+exports.mapObj = function(t) {
+  var o = ({first: 1, second: 30}).map(function(a) {
+    return a.value + 1;
+  }, {
+    first: 2,
+    second: 31
+  });
+  t.deepEqual(o, {first: 2, second: 31});
   t.done();
 };
 
