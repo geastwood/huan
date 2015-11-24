@@ -1,13 +1,12 @@
 import {curry} from 'lodash';
-import {mcompose, compose, contains, reduce, property, complement} from './fp';
-import {pick, patch} from './object';
+import {mcompose, compose, contains, reduce} from './fp';
 import {Maybe} from './instance/Maybe';
 import Either from './instance/Either';
 
 /**
  * (a -> String) -> [a] -> {String: [a]}
  */
-export var groupBy = curry((f, xs) => {
+export default curry((f, xs) => {
   var ls = [],
     hasFn = contains(ls),
     branch = curry((rst, x, key) => {
@@ -26,19 +25,3 @@ export var groupBy = curry((f, xs) => {
     xs
   );
 });
-
-/**
- * k -> [k: v] -> [v]
- */
-export var pluck = curry((prop, xs) => {
-  return xs.map(property(prop));
-});
-
-
-/**
- * [k] -> [{k: v}] -> [{k: v}]
- */
-export var project = curry((props, xs) => {
-  return xs.map(compose(patch(props), pick(props)));
-});
-

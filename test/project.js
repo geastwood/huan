@@ -1,4 +1,4 @@
-var arr = require('../../lib/array');
+var project = require('../lib/project');
 
 exports.project = function(t) {
   var testArr = [
@@ -7,7 +7,7 @@ exports.project = function(t) {
     {a: 'a_3', c: 'c_3'}
   ];
 
-  t.deepEqual(arr.project(['a', 'b'])(testArr), [
+  t.deepEqual(project(['a', 'b'])(testArr), [
     {a: 'a_1', b: 'b_1'},
     {a: 'a_2', b: 'b_2'},
     {a: 'a_3', b: undefined}

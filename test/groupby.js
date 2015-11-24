@@ -1,6 +1,6 @@
-var arr = require('../../lib/');
-var fp = require('../../lib/fp');
-var Maybe = require('../../lib/instance/Maybe').Maybe;
+var groupBy = require('../lib/groupBy');
+var fp = require('../lib/fp');
+var Maybe = require('../lib/instance/Maybe').Maybe;
 var prop = fp.prop;
 
 var id = prop('id');
@@ -9,7 +9,7 @@ var name = prop('name');
 
 exports.groupBy = function(t) {
 
-  t.deepEqual(arr.groupBy(id, [
+  t.deepEqual(groupBy(id, [
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'}
@@ -24,9 +24,9 @@ exports.groupBy = function(t) {
   );
 
   // empty return empty
-  t.deepEqual(arr.groupBy(id, []), {});
+  t.deepEqual(groupBy(id, []), {});
 
-  t.deepEqual(arr.groupBy(id, [
+  t.deepEqual(groupBy(id, [
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
@@ -45,7 +45,7 @@ exports.groupBy = function(t) {
   );
 
   // group by name
-  t.deepEqual(arr.groupBy(name, [
+  t.deepEqual(groupBy(name, [
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
       {id: 1, name: 'fei'},
@@ -71,7 +71,7 @@ exports['groupBy - key fn return undefined'] = function(t) {
     {id: 1, name: 'fei'},
     {id: 2, name: 'fei'}
   ];
-  t.deepEqual(arr.groupBy(id1, data1),
+  t.deepEqual(groupBy(id1, data1),
     {
       '@@error': [
         {id: 1, name: 'fei'},
@@ -102,7 +102,7 @@ exports['groupBy-again'] = function(t) {
             score < 90 ? 'B' : 'A');
     };
 
-  t.deepEqual(arr.groupBy((function(student) {
+  t.deepEqual(groupBy((function(student) {
       var score = student.score;
       return (score < 65 ? 'F' :
         score < 70 ? 'D' :
@@ -117,7 +117,7 @@ exports['groupBy-again'] = function(t) {
   );
 
   // test curry of group by
-  t.deepEqual(arr.groupBy(getStore)(data),
+  t.deepEqual(groupBy(getStore)(data),
     {
       B: [{name: 'Abby', score: 84}],
       F: [{name: 'Eddy', score: 58}],
@@ -125,7 +125,7 @@ exports['groupBy-again'] = function(t) {
     }
   );
 
-  t.deepEqual(arr.groupBy(function(lang) {
+  t.deepEqual(groupBy(function(lang) {
       if (lang.name === 'js' || lang.name === 'php') {
         return 'not-typed'
       }
