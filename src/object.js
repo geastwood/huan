@@ -1,6 +1,7 @@
 import {curry} from 'lodash';
-import {concat, id, reduce, contains} from './fp';
+import {concat, id, reduce, contains, complement} from './fp';
 import Identity from './instance/Identity';
+import {diff} from './array';
 
 export var mapObj = function(f) {
   return Object.keys(this).reduce((carry, key) => {
@@ -53,7 +54,6 @@ export var valueIf = (f, obj) => {
   return obj.reduce([], (carry, v) => carry.concat((true === f(v)) ? v.value : []));
 };
 
-
 /**
  * [k] -> {k: v} -> {k: v}
  */
@@ -66,4 +66,12 @@ export var pick = curry((props, obj) => {
  */
 export var omit = curry((props, obj) => {
   return obj.filter(item => !contains(props, item.key));
+});
+
+/**
+ * [k] -> {k: v} -> {k: v}
+ */
+export var patch = curry((props, obj) => {
+  diff(props, Object.keys(obj)).forEach(key => obj[key] = undefined);
+  return obj;
 });

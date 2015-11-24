@@ -7,5 +7,6 @@ exports.pick = function(t) {
   t.deepEqual(obj.pick(['name', 'role'])(testObj), {name: 'test', role: 'testObj'});
   t.deepEqual(obj.pick(['name', 'role', 'prop100'], testObj), {name: 'test', role: 'testObj'});
   t.deepEqual(obj.pick([], testObj), {});
+  t.deepEqual(obj.pick(['fei'], testObj), {});
   t.done();
 };

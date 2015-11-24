@@ -26,6 +26,8 @@ exports.mapObj = function(t) {
   t.done();
 };
 
+
+
 //exports.valueIf = function(t) {
 //  t.deepEqual({name: 1, name2: 2, name3: 3, name4: 4, name5: 5, name6: 6}.bian().valuesIf(function(v) {
 //    return v > 5;

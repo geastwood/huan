@@ -1,5 +1,6 @@
 import {curry} from 'lodash';
-import {mcompose, compose, contains, reduce} from './fp';
+import {mcompose, compose, contains, reduce, property, complement} from './fp';
+import {pick, patch} from './object';
 import {Maybe} from './instance/Maybe';
 import Either from './instance/Either';
 
@@ -25,3 +26,20 @@ export var groupBy = curry((f, xs) => {
     xs
   );
 });
+
+/**
+ * k -> [k: v] -> [v]
+ */
+export var pluck = curry((prop, xs) => {
+  return xs.map(property(prop));
+});
+
+
+/**
+ * [k] -> [{k: v}] -> [{k: v}]
+ */
+export var project = curry((props, xs) => {
+  return xs.map(compose(patch(props), pick(props)));
+});
+
+export var diff = curry((arr1, arr2) => arr1.filter(complement(contains(arr2))));
