@@ -1,5 +1,5 @@
 import {curry} from 'lodash';
-import {concat, id, reduce} from './fp';
+import {concat, id, reduce, contains} from './fp';
 import Identity from './instance/Identity';
 
 export var mapObj = function(f) {
@@ -15,12 +15,25 @@ export var reduceObj = function(init, f) {
   }, init, Object.keys(this));
 };
 
+export var filterObj = function(f) {
+  return this.reduce({}, (carry, item) => {
+    if (true === f(item)) {
+      carry[item.key] = item.value;
+    }
+    return carry;
+  });
+};
+
 Object.defineProperty(Object.prototype, 'map', {
   value: mapObj
 });
 
 Object.defineProperty(Object.prototype, 'reduce', {
   value: reduceObj
+});
+
+Object.defineProperty(Object.prototype, 'filter', {
+  value: filterObj
 });
 
 /**
@@ -39,3 +52,18 @@ export var values = obj => {
 export var valueIf = (f, obj) => {
   return obj.reduce([], (carry, v) => carry.concat((true === f(v)) ? v.value : []));
 };
+
+
+/**
+ * [k] -> {k: v} -> {k: v}
+ */
+export var pick = curry((props, obj) => {
+  return obj.filter(item => contains(props, item.key));
+});
+
+/**
+ * [k] -> {k: v} -> {k: v}
+ */
+export var omit = curry((props, obj) => {
+  return obj.filter(item => !contains(props, item.key));
+});
