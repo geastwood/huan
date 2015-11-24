@@ -1,40 +1,27 @@
 import {curry} from 'lodash';
-import {concat, id, reduce, contains, complement} from './fp';
+import {concat, id, reduce, contains} from './fp';
 import Identity from './instance/Identity';
-import {difference} from './array';
-
-export var mapObj = function(f) {
-  return Object.keys(this).reduce((carry, key) => {
-    carry[key] = f({key, value: this[key]});
-    return carry;
-  }, {});
-};
-
-export var reduceObj = function(init, f) {
-  return reduce((carry, key) => {
-    return f(carry, {key, value: this[key]});
-  }, init, Object.keys(this));
-};
-
-export var filterObj = function(f) {
-  return this.reduce({}, (carry, item) => {
-    if (true === f(item)) {
-      carry[item.key] = item.value;
-    }
-    return carry;
-  });
-};
+import difference from './difference';
+import mapObj from './mapObj';
+import reduceObj from './reduceObj';
+import filterObj from './filterObj';
 
 Object.defineProperty(Object.prototype, 'map', {
-  value: mapObj
+  value: function(f) {
+    return mapObj(f, this);
+  }
 });
 
 Object.defineProperty(Object.prototype, 'reduce', {
-  value: reduceObj
+  value: function(init, f) {
+    return reduceObj(init, f, this);
+  }
 });
 
 Object.defineProperty(Object.prototype, 'filter', {
-  value: filterObj
+  value: function(f) {
+    return filterObj(f, this);
+  }
 });
 
 /**

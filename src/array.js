@@ -42,7 +42,3 @@ export var project = curry((props, xs) => {
   return xs.map(compose(patch(props), pick(props)));
 });
 
-/**
- * [a] -> [a] -> [a]
- */
-export var difference = curry((arr1, arr2) => arr1.filter(complement(contains(arr2))));
