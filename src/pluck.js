@@ -1,9 +1,9 @@
 import {curry} from 'lodash';
-import {property} from './fp';
+import {prop} from './fp';
 
 /**
  * k -> [k: v] -> [v]
  */
-export default curry((prop, xs) => {
-  return xs.map(property(prop));
+export default curry((k, xs) => {
+  return xs.map(prop(k));
 });

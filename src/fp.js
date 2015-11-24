@@ -20,8 +20,7 @@ export var mcompose = (...fns) => v => {
 
 export var complement = fn => (...args) => !fn.apply(null, args);
 
-export var prop = curry((prop, obj) => Maybe.of(obj[prop]));
-export var property = curry((prop, obj) => obj[prop]);
+export var prop = curry((prop, obj) => obj[prop]);
 
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));

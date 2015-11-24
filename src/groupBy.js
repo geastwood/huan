@@ -4,7 +4,7 @@ import {Maybe} from './instance/Maybe';
 import Either from './instance/Either';
 
 /**
- * (a -> String) -> [a] -> {String: [a]}
+ * (a -> k) -> [a] -> {k: [a]}
  */
 export default curry((f, xs) => {
   var ls = [],
