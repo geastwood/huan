@@ -1,7 +1,7 @@
 import {curry} from 'lodash';
 import {concat, id, reduce, contains, complement} from './fp';
 import Identity from './instance/Identity';
-import {diff} from './array';
+import {difference} from './array';
 
 export var mapObj = function(f) {
   return Object.keys(this).reduce((carry, key) => {
@@ -72,6 +72,6 @@ export var omit = curry((props, obj) => {
  * [k] -> {k: v} -> {k: v}
  */
 export var patch = curry((props, obj) => {
-  diff(props, Object.keys(obj)).forEach(key => obj[key] = undefined);
+  difference(props, Object.keys(obj)).forEach(key => obj[key] = undefined);
   return obj;
 });
