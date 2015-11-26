@@ -1,5 +1,4 @@
 import {curry} from 'lodash';
-import {Maybe} from './instance/Maybe';
 
 /**
  * [a] -> [a] -> [a]
