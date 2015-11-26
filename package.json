@@ -13,6 +13,7 @@
     "babel": "^5.8.9"
   },
   "dependencies": {
+    "lodash.clone": "^3.0.3",
     "lodash.curry": "^3.0.2"
   },
   "author": "Fei Liu <liu.feiwood@gmail.com> (https://github.com/geastwood)",
