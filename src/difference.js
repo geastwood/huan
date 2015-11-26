@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 import {complement, contains} from './fp';
 
 /**

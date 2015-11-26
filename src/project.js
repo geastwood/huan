@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 import {compose} from './fp';
 import patch from './patch';
 import pick from './pick';

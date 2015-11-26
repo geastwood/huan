@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 import {compose, contains, reduce} from './fp';
 import defaultTo from './defaultTo';
 

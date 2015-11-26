@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 
 export default curry((size, xs) => {
   var length = xs.length, rst = [];

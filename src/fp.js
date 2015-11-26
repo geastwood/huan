@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 
 /**
  * [a] -> [a] -> [a]

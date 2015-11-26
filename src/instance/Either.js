@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 import {falcy} from '../fp';
 
 var Either = class {

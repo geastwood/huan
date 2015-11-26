@@ -1,4 +1,4 @@
-import {curry} from 'lodash';
+import curry from 'lodash.curry';
 import difference from './difference';
 /**
  * [k] -> {k: v} -> {k: v}
