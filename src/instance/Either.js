@@ -1,4 +1,5 @@
 import {curry} from 'lodash';
+import {falcy} from '../fp';
 
 var Either = class {
   constructor(left, right) {
@@ -7,16 +8,16 @@ var Either = class {
   }
 
   map(f) {
-    if (this.right == null) {
+    if (falcy(this.right)) {
       return new Either(f(this.left), this.right);
     }
     return new Either(this.left, f(this.right));
   }
   extract() {
-    return this.right == null ? this.left : this.right;
+    return falcy(this.right) ? this.left : this.right;
   }
   chain(f) {
-    return f((this.right == null ? this.left : this.right));
+    return f(((falcy(this.right))? this.left : this.right));
   }
 }
 
