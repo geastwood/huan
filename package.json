@@ -2,9 +2,10 @@
   "name": "huan",
   "version": "0.0.1",
   "description": "FP",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "./watch.sh"
+    "test": "./watch.sh",
+    "prepublish": "babel -d lib src"
   },
   "keywords": [
     "FP"
