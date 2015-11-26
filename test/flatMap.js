@@ -1,5 +1,8 @@
 var flatMap = require('../lib/flatMap');
+var chunk = require('../lib/chunk');
+var pair = require('../lib/pair');
 var clone = require('lodash').clone;
+var compose = require('../lib/fp').compose;
 
 exports.flatMap = function(t) {
   t.deepEqual(
@@ -30,3 +33,31 @@ exports['flatMap - complex'] = t => {
   t.done();
 };
 
+exports['flatMap - chunk'] = t => {
+  var data = [
+      {name: 'a', value: '1'},
+      {name: 'b', value: '2'}
+    ],
+    rst = [
+      [
+        {name: 'a', value: '1'},
+        {name: 'a', value: '1', role: 'copy'}
+      ],
+      [
+        {name: 'b', value: '2'},
+        {name: 'b', value: '2', role: 'copy'}
+      ]
+    ],
+    f = v => {
+      var copy = clone(v);
+      copy.role = 'copy';
+      return [v, copy];
+    },
+    g = compose(chunk(2), flatMap(f)),
+    testPair = compose(pair, flatMap(f));
+
+  t.deepEqual(g(data), rst);
+  t.deepEqual(testPair(data), rst);
+
+  t.done();
+};
