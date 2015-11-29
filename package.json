@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "lodash.clone": "^3.0.3",
-    "lodash.curry": "^3.0.2"
+    "lodash.curry": "^3.0.2",
+    "lodash.isplainobject": "^3.2.0"
   },
   "author": "Fei Liu <liu.feiwood@gmail.com> (https://github.com/geastwood)",
   "license": "MIT"

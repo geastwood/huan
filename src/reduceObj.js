@@ -1,7 +1,7 @@
 import {reduce} from './fp';
 
-export default function(init, f, obj) {
+export default (acc, init, obj) => {
   return reduce((carry, key) => {
-    return f(carry, {key, value: obj[key]});
+    return acc(carry, {key, value: obj[key]});
   }, init, Object.keys(obj));
 };

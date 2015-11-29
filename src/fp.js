@@ -1,5 +1,9 @@
 import curry from 'lodash.curry';
 
+import isPlainObject  from 'lodash.isplainobject';
+
+export var isObject = isPlainObject;
+export var isArray = v => Object.prototype.toString.call(v) === '[object Array]'
 /**
  * [a] -> [a] -> [a]
  */
@@ -20,6 +24,8 @@ export var mcompose = (...fns) => v => {
 export var complement = fn => (...args) => !fn.apply(null, args);
 
 export var prop = curry((prop, obj) => obj[prop]);
+export var hasProp = curry((propName, obj) => (typeof prop(propName, obj) !== 'undefined'));
+export var propEq = curry((propName, v, obj) => prop(propName, obj) === v);
 
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));
