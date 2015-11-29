@@ -30,9 +30,9 @@ exports.allPass = t => {
 
   t.done();
 };
+
 exports['allPass - advance on [] and {}'] = t => {
   t.deepEqual(allPass([isEven, lessThan10])(8), true);
   t.deepEqual(allPass([isEven, lessThan10])([4, 8]), true);
-
   t.done();
 };

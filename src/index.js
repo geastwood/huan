@@ -16,15 +16,21 @@ import project from './project';
 import reduceObj from './reduceObj';
 import valueIf from './valueIf';
 import values from './values';
+import always from './always';
+import anyPass from './anyPass';
+import allPass from './allPass';
 
 export default {
   ...fp,
-  groupBy,
+  always,
+  anyPass,
+  allPass,
   chunk,
   defaultTo,
   difference,
   filterObj,
   flatMap,
+  groupBy,
   mapObj,
   omit,
   pair,

@@ -37,3 +37,4 @@ lib
 *.iml
 out
 gen
+/dist
