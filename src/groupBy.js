@@ -8,6 +8,7 @@ import defaultTo from './defaultTo';
  */
 export default curry((f, xs) => {
   var ls = [];
+
   // reduce [] to an {}
   return reduce((rst, obj) => {
     return compose(
