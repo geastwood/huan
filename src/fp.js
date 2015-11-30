@@ -42,6 +42,7 @@ export var propEq = curry((propName, v, obj) => prop(propName, obj) === v);
 export var of = x => x.of;
 export var map = curry((f, u) => u.map(f));
 export var reduce = curry((acc, init, xs) => xs.reduce(acc, init));
+export var filter = curry((f, u) => u.filter(f));
 export var ap = curry((u, v) => u.ap(v));
 export var extract = m => m.extract();
 export var chain = curry((f, m) => m.chain(f));
