@@ -44,5 +44,6 @@ export default {
   project,
   reduceObj,
   valueIf,
-  values
+  values,
+  uniqueBy
 };
