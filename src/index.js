@@ -19,6 +19,8 @@ import values from './values';
 import always from './always';
 import anyPass from './anyPass';
 import allPass from './allPass';
+import curry from 'lodash.curry';
+import uniqueBy from './uniqueBy';
 
 export default {
   ...fp,
@@ -26,6 +28,7 @@ export default {
   anyPass,
   allPass,
   chunk,
+  curry,
   defaultTo,
   difference,
   filterObj,
