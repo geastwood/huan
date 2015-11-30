@@ -21,6 +21,18 @@ export var mcompose = (...fns) => v => {
   }, v)
 };
 
+export var push = curry((ls, v) => {
+  ls.push(v);
+  return v;
+});
+
+export var tap = curry((f, g, v)  => {
+  f(g(v));
+  return v;
+});
+
+export var condition = curry((predicate, trueFn, falseFn) => v => predicate(v) ? trueFn(v) : falseFn(v));
+
 export var complement = fn => (...args) => !fn.apply(null, args);
 
 export var prop = curry((prop, obj) => obj[prop]);

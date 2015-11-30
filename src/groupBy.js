@@ -1,22 +1,21 @@
 import curry from 'lodash.curry';
-import {compose, contains, reduce} from './fp';
+import {id, tap, push, concat, compose, contains, reduce, prop, condition} from './fp';
+import always from './always';
 import defaultTo from './defaultTo';
 
 /**
  * String k => (a -> k) -> [a] -> {k: [a]}
  */
 export default curry((f, xs) => {
-  var ls = [],
-    hasFn = contains(ls),
-    branch = curry((rst, x, key) => {
-      if (hasFn(key)) {
-        rst[key].push(x);
-      } else {
-        ls.push(key);
-        rst[key] = [x];
-      }
-      return rst;
-    });
-
-  return reduce((rst, x) => compose(branch(rst, x), defaultTo('@@error'), f)(x), {}, xs);
+  var ls = [];
+  // reduce [] to an {}
+  return reduce((rst, obj) => {
+    return compose(
+      condition(
+        contains(ls),
+        compose(always(rst), key => rst[key].push(obj)),
+        compose(always(rst), push(ls), tap(v => rst[v] = [obj], id))
+      ),
+      defaultTo('@@error'), f)(obj)
+  }, {}, xs);
 });
