@@ -21,6 +21,7 @@ import anyPass from './anyPass';
 import allPass from './allPass';
 import curry from 'lodash.curry';
 import uniqueBy from './uniqueBy';
+import flatten from './flatten';
 
 export default {
   ...fp,
@@ -45,5 +46,6 @@ export default {
   reduceObj,
   valueIf,
   values,
-  uniqueBy
+  uniqueBy,
+  flatten
 };
