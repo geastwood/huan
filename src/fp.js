@@ -15,11 +15,6 @@ export var concat = curry((a, b) => a.concat(b));
 export var id = v => v;
 
 export var compose = (...fns) => v => fns.reduceRight((carry, fn) => fn(carry), v);
-export var mcompose = (...fns) => v => {
-  return fns.reduceRight((carry, fn) => {
-    return compose(extract, fn)(carry);
-  }, v)
-};
 
 export var push = curry((ls, v) => {
   ls.push(v);
@@ -40,26 +35,25 @@ export var hasProp = curry((propName, obj) => (typeof prop(propName, obj) !== 'u
 export var propEq = curry((propName, v, obj) => prop(propName, obj) === v);
 
 export var of = x => x.of;
-export var map = curry((f, u) => u.map(f));
+
+// remove the second argument i
+export var map = curry((f, u) => u.map(v => f(v)));
+
 export var reduce = curry((acc, init, xs) => xs.reduce(acc, init));
-export var filter = curry((f, u) => u.filter(f));
-export var ap = curry((u, v) => u.ap(v));
-export var extract = m => m.extract();
+export var filter = curry((f, u) => u.filter(v => f(v)));
 export var chain = curry((f, m) => m.chain(f));
 
 // xs -> any -> Boolean
 export var contains = curry((xs, key) => xs.indexOf(key) !== -1);
 
-export var ifNothing = curry((v, m) => {
-  if (String(m) === 'Nothing') {
-    return v;
-  }
-  return m.extract();
-});
-
+export var ap = curry((u, v) => u.ap(v));
 export var liftA2 = curry((f, x, y) => x.map(f).ap(y));
 export var liftA3 = curry((f, x, y, z) => x.map(f).ap(y).ap(z));
 
 export var makeType = (type, v) => new type(v);
 
 export var falcy = v => v == null || v !== v;
+
+export var splats = fn => arr => fn(...arr);
+export var unsplats = fn => (...args) => fn(args);
+
