@@ -1,4 +1,5 @@
 import curry from 'lodash.curry';
+import map from './map';
 
 import isPlainObject  from 'lodash.isplainobject';
 
@@ -16,6 +17,7 @@ export var concat = curry((a, b) => a.concat(b));
 export var id = v => v;
 
 export var compose = (...fns) => v => fns.reduceRight((carry, fn) => fn(carry), v);
+export var mcompose = (...fns) => u => fns.reduceRight((v, f) => map(f, v), u);
 
 export var push = curry((ls, v) => {
   ls.push(v);
