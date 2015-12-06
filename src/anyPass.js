@@ -1,7 +1,8 @@
-import {reduce, map, isObject, isArray} from './fp';
+import {reduce, isObject, isArray} from './fp';
 import curry from 'lodash.curry';
 import reduceObj from './reduceObj';
 import mapObj from './mapObj';
+import map from './map';
 
 var acc = v => (carry, f) => carry || f(v);
 var pred = (carry, status) => carry || status;

@@ -4,6 +4,7 @@ import isPlainObject  from 'lodash.isplainobject';
 
 export var isObject = isPlainObject;
 export var isArray = v => Object.prototype.toString.call(v) === '[object Array]'
+export var isDefined = v => v === undefined;
 /**
  * [a] -> [a] -> [a]
  */
@@ -36,9 +37,6 @@ export var propEq = curry((propName, v, obj) => prop(propName, obj) === v);
 
 export var of = x => x.of;
 
-// remove the second argument i
-export var map = curry((f, u) => u.map(v => f(v)));
-
 export var reduce = curry((acc, init, xs) => xs.reduce(acc, init));
 export var filter = curry((f, u) => u.filter(v => f(v)));
 export var chain = curry((f, m) => m.chain(f));
@@ -56,4 +54,4 @@ export var falcy = v => v == null || v !== v;
 
 export var splats = fn => arr => fn(...arr);
 export var unsplats = fn => (...args) => fn(args);
-
+export var extract = v => v.extract();

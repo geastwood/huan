@@ -12,7 +12,7 @@ Maybe.of = v => {
     return v;
   }
   return new Maybe(v);
-}
+};
 
 export var Just = inherit(Maybe, function(v) {
   this.value = v;
@@ -34,7 +34,7 @@ Just.prototype.toString = function() {
 };
 
 export var Nothing = inherit(Maybe, function() {
-  this.value = null;
+  this.value = undefined;
 });
 
 Nothing.prototype.map = function() {
@@ -44,9 +44,9 @@ Nothing.prototype.ap = function() {
   return this;
 };
 Nothing.prototype.extract = function() {
-  return null;
+  return undefined;
 };
 
 Nothing.prototype.toString = function() {
   return 'Nothing';
-}
+};

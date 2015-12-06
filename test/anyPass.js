@@ -1,7 +1,7 @@
 var anyPass = require('../lib/anyPass');
 var always = require('../lib/always');
 var fp = require('../lib/fp');
-var map = fp.map;
+var map = require('../lib/map');
 var curry = require('lodash.curry');
 var isEven = v => v % 2 === 0;
 var lessThan10 = v => v < 10;
