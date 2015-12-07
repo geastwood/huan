@@ -21,6 +21,7 @@ import anyPass from './anyPass';
 import allPass from './allPass';
 import curry from 'lodash.curry';
 import uniqByKey from './uniqByKey';
+import uniqBy from './uniqBy';
 import flatten from './flatten';
 
 export default {
@@ -47,5 +48,6 @@ export default {
   valueIf,
   values,
   uniqByKey,
+  uniqBy,
   flatten
 };
