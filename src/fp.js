@@ -57,3 +57,5 @@ export var falcy = v => v == null || v !== v;
 export var splats = fn => arr => fn(...arr);
 export var unsplats = fn => (...args) => fn(args);
 export var extract = v => v.extract();
+
+export var add = curry((a, b) => a + b);

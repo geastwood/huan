@@ -6,6 +6,7 @@
 * update fp.map to remove since second arguments
 * add flip on function to reverse the arguments (first two)
 * research safeGet
+* add `uniqueBy`
 ```
 var safeGet = curry((propName, dft, obj) => {
   var v;
