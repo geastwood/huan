@@ -6,6 +6,7 @@ import difference from './difference';
 import filterObj from './filterObj';
 import flatMap from './flatMap';
 import mapObj from './mapObj';
+import map from './map';
 import omit from './omit';
 import pair from './pair';
 import partition from './partition';
@@ -37,6 +38,7 @@ export default {
   flatMap,
   groupBy,
   mapObj,
+  map,
   omit,
   pair,
   partition,
