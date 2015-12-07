@@ -20,7 +20,7 @@ import always from './always';
 import anyPass from './anyPass';
 import allPass from './allPass';
 import curry from 'lodash.curry';
-import uniqueBy from './uniqueBy';
+import uniqByKey from './uniqByKey';
 import flatten from './flatten';
 
 export default {
@@ -46,6 +46,6 @@ export default {
   reduceObj,
   valueIf,
   values,
-  uniqueBy,
+  uniqByKey,
   flatten
 };

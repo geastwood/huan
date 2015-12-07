@@ -59,3 +59,4 @@ export var unsplats = fn => (...args) => fn(args);
 export var extract = v => v.extract();
 
 export var add = curry((a, b) => a + b);
+export var head = obj => obj[0];

@@ -7,6 +7,7 @@
 * add flip on function to reverse the arguments (first two)
 * research safeGet
 * add `uniqueBy`
+* add `head` and `tail` and add capitialize
 ```
 var safeGet = curry((propName, dft, obj) => {
   var v;
