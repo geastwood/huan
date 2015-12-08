@@ -20,7 +20,9 @@ import values from './values';
 import always from './always';
 import anyPass from './anyPass';
 import allPass from './allPass';
-import curry from 'lodash.curry';
+import curry1 from './core/curry1';
+import curry2 from './core/curry2';
+import curry3 from './core/curry3';
 import uniqByKey from './uniqByKey';
 import uniqBy from './uniqBy';
 import flatten from './flatten';
@@ -29,6 +31,8 @@ import {Maybe} from './instance/Maybe';
 import Identity from './instance/Identity';
 import Const from './instance/Const';
 
+var curry = curry2;
+
 export default {
   ...fp,
   always,
@@ -36,6 +40,9 @@ export default {
   allPass,
   chunk,
   curry,
+  curry1,
+  curry2,
+  curry3,
   defaultTo,
   difference,
   filterObj,

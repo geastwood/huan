@@ -1,6 +1,6 @@
 import {reduce, isObject, isArray} from './fp';
 import map from './map';
-import curry from 'lodash.curry';
+import curry2 from './core/curry2';
 import reduceObj from './reduceObj';
 import mapObj from './mapObj';
 
@@ -11,7 +11,7 @@ var pred = (carry, status) => carry && status;
  * [(f -> Bool)] -> a -> Bool
  * @param xs
  */
-export default curry((xs, v) => {
+export default curry2((xs, v) => {
   return isArray(v) ?
     reduce(pred, true, map(v_v => {
       return reduce(acc(v_v), true, xs);

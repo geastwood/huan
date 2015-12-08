@@ -1,4 +1,4 @@
-import curry from 'lodash.curry';
+import curry from './core/curry2';
 import {concat, reduce} from './fp';
 
 /**

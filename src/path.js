@@ -1,4 +1,4 @@
-import curry from 'lodash.curry';
+import curry from './core/curry2';
 import {prop, compose, splats, extract, mcompose} from './fp';
 import map from './map';
 import {Maybe} from './instance/Maybe';

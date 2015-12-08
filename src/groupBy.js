@@ -1,4 +1,4 @@
-import curry from 'lodash.curry';
+import curry from './core/curry2';
 import {id, tap, push, concat, compose, contains, reduce, prop, condition} from './fp';
 import always from './always';
 import defaultTo from './defaultTo';

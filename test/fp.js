@@ -9,3 +9,8 @@ exports.compose = t => {
   t.equal(splats(compose)([add1, add2])(2), 5);
   t.done();
 };
+
+exports.prop = t => {
+  console.log(fp.prop('name'));
+  t.done();
+};

@@ -1,5 +1,5 @@
 import {reduce, isObject, isArray} from './fp';
-import curry from 'lodash.curry';
+import curry from './core/curry2';
 import reduceObj from './reduceObj';
 import mapObj from './mapObj';
 import map from './map';
