@@ -1,10 +1,20 @@
 SHELL := /bin/bash
 
-test:
-	@echo "----------------- 我是分界线 -----------------"
+build:
 	@rm -Rf lib/*
-	@babel -d lib src
+	@babel -qd lib src
+
+
+test: build
+	@echo "----------------- 我是分界线 -----------------"
 	@nodeunit test/*
 	@echo "----------------- 我是分界线 -----------------"
 
-.PHONY: test
+profile: build
+	@echo "----------------- Profiling -----------------"
+	@babel -qd profile_compiled profile
+	@node profile_compiled/index.js
+	@rm -Rf profile_compiled
+	@echo "----------------- Profiling END -------------"
+
+.PHONY: test profile

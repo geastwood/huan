@@ -60,3 +60,4 @@ export var extract = v => v.extract();
 
 export var add = curry((a, b) => a + b);
 export var head = obj => obj[0];
+export var slice = curry((start, end, xs) => xs.slice(start, end));
