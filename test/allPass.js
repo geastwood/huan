@@ -1,6 +1,5 @@
 var allPass = require('../lib/allPass');
 var fp = require('../lib/fp');
-var curry = require('lodash.curry');
 var always = require('../lib/always');
 
 var isEven = v => v % 2 === 0;

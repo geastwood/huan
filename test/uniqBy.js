@@ -32,5 +32,6 @@ exports.uniqBy = t => {
     {name: 'fl', id: 3},
     {name: 'fei'}
   ]);
+  t.deepEqual(uniqBy(Math.abs, [-1, -5, 2, 10, 1, 2]), [-1, -5, 2, 10])
   t.done();
 };

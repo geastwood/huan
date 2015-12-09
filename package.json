@@ -16,7 +16,8 @@
   "dependencies": {
     "babel-loader": "^6.2.0",
     "lodash.clone": "^3.0.3",
-    "lodash.isplainobject": "^3.2.0"
+    "lodash.isplainobject": "^3.2.0",
+    "ramda": "^0.18.0"
   },
   "author": "Fei Liu <liu.feiwood@gmail.com> (https://github.com/geastwood)",
   "license": "MIT"

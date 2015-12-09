@@ -1,5 +1,7 @@
-import uniqBy from '../lib/uniqByKey';
+import uniqByKey from '../lib/uniqByKey';
+import uniqBy from '../lib/uniqBy';
 import {data1 as data} from  './data';
+import ramda from 'ramda';
 
 export var name = 'unique';
 export var repeat = 10000;
@@ -11,7 +13,7 @@ export var cases = [
   {
     description: 'uniq from "huan"',
     f() {
-      (uniqBy('id', data));
+      (uniqByKey('id', data));
     }
   },
   {
@@ -28,7 +30,18 @@ export var cases = [
       });
     }
   },
-
+  {
+    description: 'huan uniq',
+    f() {
+      uniqBy(v => v.id, data);
+    }
+  },
+  {
+    description: 'ramda uniq',
+    f() {
+      ramda.uniqBy(v => v.id, data);
+    }
+  }
 ];
 
 
