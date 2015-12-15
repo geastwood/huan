@@ -24,3 +24,9 @@ arr.filter(item => {
   return false;
 });
 ```
+
+
+implement via huan
+```
+me.down('tfDefinedColumnSets').setValue(record.get('setId'))
+```
