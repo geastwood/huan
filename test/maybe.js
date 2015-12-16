@@ -1,5 +1,4 @@
-var m = require('../lib/instance/Maybe');
-var Maybe = m.Maybe;
+var Maybe = require('../lib/instance/Maybe');
 var fp = require('../lib/fp');
 var map = require('../lib/map');
 

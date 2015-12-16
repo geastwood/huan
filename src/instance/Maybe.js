@@ -1,6 +1,6 @@
 import {inherit} from '../util';
 
-export var Maybe = function(v) {
+var Maybe = function(v) {
   if (v == null) {
     return new Nothing()
   }
@@ -14,7 +14,7 @@ Maybe.of = v => {
   return new Maybe(v);
 };
 
-export var Just = inherit(Maybe, function(v) {
+var Just = inherit(Maybe, function(v) {
   this.value = v;
 });
 
@@ -26,14 +26,17 @@ Just.prototype.extract = function() {
   return this.value;
 };
 Just.prototype.ap = function(v) {
-  return new Maybe(this.value(v));
+  return v.map(this.value);
+};
+Just.prototype.chain = function(f) {
+  return f(this.value);
 };
 
 Just.prototype.toString = function() {
-  return 'Just';
+  return `Just:${this.value}`;
 };
 
-export var Nothing = inherit(Maybe, function() {
+var Nothing = inherit(Maybe, function() {
   this.value = undefined;
 });
 
@@ -50,3 +53,6 @@ Nothing.prototype.extract = function() {
 Nothing.prototype.toString = function() {
   return 'Nothing';
 };
+Maybe.Just = Just;
+Maybe.Nothing = Nothing;
+export default Maybe;

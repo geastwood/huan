@@ -60,5 +60,7 @@ export var unsplats = fn => (...args) => fn(args);
 export var extract = v => v.extract();
 
 export var add = curry2((a, b) => a + b);
-export var head = obj => obj[0];
-export var slice = curry2((start, end, xs) => xs.slice(start, end));
+
+export var slice = curry3((start, end, xs) => xs.slice(start, end));
+export var head = prop(0);
+export var tail = slice(1, Infinity);

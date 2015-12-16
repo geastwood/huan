@@ -27,7 +27,7 @@ import uniqByKey from './uniqByKey';
 import uniqBy from './uniqBy';
 import flatten from './flatten';
 
-import {Maybe} from './instance/Maybe';
+import Maybe from './instance/Maybe';
 import Identity from './instance/Identity';
 import Const from './instance/Const';
 

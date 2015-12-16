@@ -1,6 +1,5 @@
 var groupBy = require('../lib/groupBy');
 var fp = require('../lib/fp');
-var Maybe = require('../lib/instance/Maybe').Maybe;
 var prop = fp.prop;
 
 var id = prop('id');
