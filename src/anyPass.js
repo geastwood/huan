@@ -1,7 +1,6 @@
 import {reduce, isObject, isArray} from './fp';
 import curry from './core/curry2';
 import reduceObj from './reduceObj';
-import mapObj from './mapObj';
 import map from './map';
 
 var acc = v => (carry, f) => carry || f(v);

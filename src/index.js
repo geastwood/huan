@@ -9,6 +9,7 @@ import mapObj from './mapObj';
 import map from './map';
 import omit from './omit';
 import pair from './pair';
+import toPair from './toPair';
 import partition from './partition';
 import path from './patch';
 import pick from './pick';
@@ -26,6 +27,7 @@ import curry3 from './core/curry3';
 import uniqByKey from './uniqByKey';
 import uniqBy from './uniqBy';
 import flatten from './flatten';
+import join from './join';
 
 import Maybe from './instance/Maybe';
 import Identity from './instance/Identity';
@@ -48,10 +50,12 @@ export default {
   filterObj,
   flatMap,
   groupBy,
+  join,
   mapObj,
   map,
   omit,
   pair,
+  toPair,
   partition,
   path,
   pick,

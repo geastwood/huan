@@ -3,6 +3,9 @@ var pair = require('../lib/pair');
 exports.pair = t => {
   var arr = [1, 2, 3, 4, 5];
 
+  t.deepEqual(pair({a: 'a1', b: 'b2'}), [['a', 'a1'], ['b', 'b2']]);
+  t.deepEqual(pair({}), []);
+
   t.deepEqual(
     pair([]),
     []
