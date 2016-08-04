@@ -25,6 +25,7 @@ export var push = curry2((ls, v) => {
   return v;
 });
 
+// use tap for debugger and console.log
 export var tap = curry3((f, g, v)  => {
   f(g(v));
   return v;
