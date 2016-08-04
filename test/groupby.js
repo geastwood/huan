@@ -1,6 +1,6 @@
-var groupBy = require('../lib/groupBy');
-var fp = require('../lib/fp');
-var prop = fp.prop;
+var huan = require('../lib')['default'];
+var groupBy = huan.groupBy;
+var prop = huan.prop;
 
 var id = prop('id');
 var id1 = prop('id1');

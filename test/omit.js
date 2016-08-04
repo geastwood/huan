@@ -1,4 +1,4 @@
-var omit = require('../lib/omit');
+var omit = require('../lib')['default'].omit;
 
 exports.omit = function(t) {
   var testObj = {name: 'test', role: 'testObj', prop1: 'prop1', prop2: 'prop2'}

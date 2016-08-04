@@ -1,7 +1,7 @@
-var fp = require('../lib/fp');
-var map = require('../lib/map');
-var defaultTo = require('../lib/defaultTo');
-var values = require('../lib/values');
+var huan = require('../lib')['default'];
+var map = huan.map;
+var defaultTo = huan.defaultTo;
+var values = huan.values;
 
 exports.translate = t => {
   var arr = ['a', 'b', 'c'];
@@ -12,9 +12,9 @@ exports.translate = t => {
     b: 'translation of b',
     c: 'translation of c'
   };
-  var translation = map(v => fp.compose(defaultTo(v), fp.prop(v)), arr).map(f => f(tr));
-  var translation1 = map(v => fp.compose(defaultTo(v), fp.prop(v)), arr1).map(f => f(tr));
-  var translation2 = map(v => fp.compose(defaultTo(v), fp.prop(v)), arr2).map(f => f(tr));
+  var translation = map(v => huan.compose(defaultTo(v), huan.prop(v)), arr).map(f => f(tr));
+  var translation1 = map(v => huan.compose(defaultTo(v), huan.prop(v)), arr1).map(f => f(tr));
+  var translation2 = map(v => huan.compose(defaultTo(v), huan.prop(v)), arr2).map(f => f(tr));
 
   t.deepEqual(translation, values(tr));
   t.deepEqual(translation1, values(tr).concat('d'));

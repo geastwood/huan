@@ -1,11 +1,10 @@
-var allPass = require('../lib/allPass');
-var fp = require('../lib/fp');
-var always = require('../lib/always');
+var huan = require('../lib/')['default'];
+var allPass = huan.allPass;
 
 var isEven = v => v % 2 === 0;
 var lessThan10 = v => v < 10;
 var eq42 = v => v === 42;
-var propEq = fp.propEq;
+var propEq = huan.propEq;
 var propEqA = propEq('a', 'a_1');
 var propEqB = propEq('b', 'b_1');
 
@@ -22,8 +21,8 @@ exports.allPass = t => {
   var matchShape = [propEqA, propEqB];
 
   t.equal(allPass(matchShape)(obj), true);
-  t.equal(allPass(matchShape.concat(fp.hasProp('c')))(obj1), true);
-  t.equal(allPass(matchShape.concat(fp.hasProp('c')).concat(obj => {
+  t.equal(allPass(matchShape.concat(huan.hasProp('c')))(obj1), true);
+  t.equal(allPass(matchShape.concat(huan.hasProp('c')).concat(obj => {
     return obj.b === 'b_1' && obj.c === 'c_1';
   }))(obj1), true);
 

@@ -1,4 +1,4 @@
-var map = require('../lib/map');
+var map = require('../lib')['default'].map;
 
 exports.map = t => {
   var obj = {

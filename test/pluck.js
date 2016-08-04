@@ -1,4 +1,5 @@
-var pluck = require('../lib/pluck');
+var huan = require('../lib')['default'];
+var pluck = huan.pluck;
 
 exports.pluck = function(t) {
   var testArr = [

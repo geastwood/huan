@@ -1,4 +1,5 @@
-var fp = require('../lib/fp');
+var fp = require('../lib')['default'];
+
 var head = fp.head;
 var tail = fp.tail;
 var compose = fp.compose;
@@ -13,7 +14,6 @@ exports.compose = t => {
 };
 
 exports.prop = t => {
-  console.log(fp.prop('name'));
   t.done();
 };
 

@@ -1,4 +1,4 @@
-var chunk = require('../lib/chunk');
+var chunk = require('../lib/')['default'].chunk;
 
 exports.chunk = t => {
   var arr = [1, 2, 3, 4, 5, 6, 7];

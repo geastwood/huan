@@ -1,5 +1,6 @@
-var uniqByKey = require('../lib/uniqByKey');
-var uniqBy = require('../lib/uniqBy');
+var huan = require('../lib')['default'];
+var uniqByKey = huan.uniqByKey;
+var uniqBy = huan.uniqBy;
 
 exports.uniqByKey = t => {
   t.deepEqual(uniqByKey('id')([

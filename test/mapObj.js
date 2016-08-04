@@ -1,5 +1,5 @@
-var fp = require('../lib/fp');
-var mapObj = require('../lib/mapObj');
+var huan = require('../lib')['default'];
+var mapObj = huan.mapObj;
 
 exports.mapObj = t => {
   t.deepEqual(mapObj(v => v, {}), {});

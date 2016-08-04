@@ -1,4 +1,5 @@
-var partition = require('../lib/partition');
+var huan = require('../lib')['default'];
+var partition = huan.partition;
 
 exports.partition = function(t) {
   t.deepEqual(

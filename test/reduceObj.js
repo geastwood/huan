@@ -1,5 +1,5 @@
-var fp = require('../lib/fp');
-var reduceObj = require('../lib/reduceObj');
+var huan = require('../lib')['default'];
+var reduceObj = huan.reduceObj;
 
 exports.reduceObj = t => {
   t.deepEqual(reduceObj((carry, o) => carry.concat(o.value))([])({a: 'a1'}), ['a1']);

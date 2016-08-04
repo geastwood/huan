@@ -1,4 +1,5 @@
-var path = require('../lib/path');
+var huan = require('../lib')['default'];
+var path = huan.path;
 
 exports.path = t => {
   var obj = {

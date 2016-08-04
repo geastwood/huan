@@ -1,7 +1,7 @@
-var values = require('../lib/values');
+var huan = require('../lib')['default'];
 
 exports.values = function(t) {
-  t.deepEqual(values({
+  t.deepEqual(huan.values({
     name: 'fei',
     knows: 'js',
     nothing: (void 0)

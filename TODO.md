@@ -1,3 +1,5 @@
+remove
+
 # TODO
 
 * ~~make `mapObj` and `reduceObj` curryable~~

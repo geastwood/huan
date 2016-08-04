@@ -1,4 +1,4 @@
-var defaultTo = require('../lib/defaultTo');
+var defaultTo = require('../lib/')['default'].defaultTo;
 
 exports.defaultTo = t => {
   t.equal(defaultTo(32)(undefined), 32);

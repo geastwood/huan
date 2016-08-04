@@ -11,9 +11,10 @@ import omit from './omit';
 import pair from './pair';
 import toPair from './toPair';
 import partition from './partition';
-import path from './patch';
+import path from './path';
 import pick from './pick';
 import pluck from './pluck';
+import patch from './patch';
 import project from './project';
 import reduceObj from './reduceObj';
 import valueIf from './valueIf';
@@ -28,10 +29,6 @@ import uniqByKey from './uniqByKey';
 import uniqBy from './uniqBy';
 import flatten from './flatten';
 import join from './join';
-
-import Maybe from './instance/Maybe';
-import Identity from './instance/Identity';
-import Const from './instance/Const';
 
 var curry = curry2;
 
@@ -61,13 +58,11 @@ export default {
   pick,
   pluck,
   project,
+  patch,
   reduceObj,
   valueIf,
   values,
   uniqByKey,
   uniqBy,
-  flatten,
-  Maybe,
-  Identity,
-  Const
+  flatten
 };

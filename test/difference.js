@@ -1,4 +1,4 @@
-var diff = require('../lib/difference');
+var diff = require('../lib/')['default'].difference;
 
 exports.difference = function(t) {
   var Z = [3, 4, 5, 6, 10];

@@ -1,4 +1,5 @@
-var pick = require('../lib/pick');
+var huan = require('../lib')['default'];
+var pick = huan.pick;
 
 exports.pick = function(t) {
   var testObj = {name: 'test', role: 'testObj', prop1: 'prop1', prop2: 'prop2'}

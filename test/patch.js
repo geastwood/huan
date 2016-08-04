@@ -1,4 +1,5 @@
-var patch = require('../lib/patch');
+var huan = require('../lib')['default'];
+var patch = huan.patch;
 
 exports.patch = function(t) {
   t.deepEqual(patch(undefined, ['a', 'c'])({}), {a: undefined, c: undefined});

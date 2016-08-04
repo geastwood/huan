@@ -1,4 +1,5 @@
-var project = require('../lib/project');
+var huan = require('../lib')['default'];
+var project = huan.project;
 
 exports.project = function(t) {
   var testArr = [

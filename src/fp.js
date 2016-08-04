@@ -5,7 +5,7 @@ import map from './map';
 import isPlainObject  from 'lodash.isplainobject';
 
 export var isObject = isPlainObject;
-export var isArray = v => Object.prototype.toString.call(v) === '[object Array]'
+export var isArray = v => Object.prototype.toString.call(v) === '[object Array]';
 export var isDefined = v => v === undefined;
 /**
  * [a] -> [a] -> [a]

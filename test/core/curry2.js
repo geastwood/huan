@@ -1,4 +1,5 @@
-var curry2 = require('../../lib/core/curry2');
+var huan = require('../../lib')['default'];
+var curry2 = huan.curry2;
 var add = (a, b) => a + b;
 
 exports.curry2 = t => {

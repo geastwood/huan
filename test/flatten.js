@@ -1,4 +1,4 @@
-var flatten = require('../lib/flatten');
+var flatten = require('../lib')['default'].flatten;
 
 exports.flatten = t => {
   var data = [1, 2, 3, [4, 5]];

@@ -1,4 +1,5 @@
-var join = require('../lib/join');
+var huan = require('../lib')['default'];
+var join = huan.join;
 
 exports.join = t => {
   t.equal(join('-')(['a', 'b', 'c']), 'a-b-c');

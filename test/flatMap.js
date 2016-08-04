@@ -1,8 +1,9 @@
-var flatMap = require('../lib/flatMap');
-var chunk = require('../lib/chunk');
-var pair = require('../lib/pair');
+var huan = require('../lib')['default'];
 var clone = require('lodash').clone;
-var compose = require('../lib/fp').compose;
+var flatMap = huan.flatMap;
+var chunk = huan.chunk;
+var pair = huan.pair;
+var compose = huan.compose;
 
 exports.flatMap = function(t) {
   t.deepEqual(

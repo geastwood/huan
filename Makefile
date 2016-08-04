@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 build:
 	@rm -Rf lib/*
-	@babel -qd lib src
+	@node_modules/.bin/babel -qd lib src
 
 
 test: build
@@ -12,7 +12,7 @@ test: build
 
 profile: build
 	@echo "----------------- Profiling -----------------"
-	@babel -qd profile_compiled profile
+	@node_modules/.bin/babel -qd profile_compiled profile
 	@node profile_compiled/index.js
 	@rm -Rf profile_compiled
 	@echo "----------------- Profiling END -------------"

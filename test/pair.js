@@ -1,4 +1,5 @@
-var pair = require('../lib/pair');
+var huan = require('../lib')['default'];
+var pair = huan.pair;
 
 exports.pair = t => {
   var arr = [1, 2, 3, 4, 5];
