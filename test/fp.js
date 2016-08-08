@@ -4,6 +4,7 @@ var head = fp.head;
 var tail = fp.tail;
 var compose = fp.compose;
 var splats = fp.splats;
+var merge = fp.mergeObj;
 
 exports.compose = t => {
   var add1 = v => v + 1,
@@ -42,5 +43,14 @@ exports.tail = t => {
   eq(tail('bc'), 'c');
   eq(tail('c'), '');
   eq(tail(''), '');
+  t.done();
+};
+
+exports.assign = t => {
+  var deepEq = t.deepEqual;
+  deepEq(merge({}, {a: 'a value'}), {a: 'a value'});
+  deepEq(merge({a: 'some other value'}, {a: 'a value'}), {a: 'a value'});
+  deepEq(merge({a: 'some other value'}), {a: 'some other value'});
+  deepEq(merge({a: 'some other value', b: 'b'}, {a: 'a'}), {a: 'a', b: 'b'});
   t.done();
 };

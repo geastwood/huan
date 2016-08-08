@@ -6,7 +6,7 @@ var acc = v => (carry, f) => carry && f(v);
 var pred = (carry, status) => carry && status;
 
 /**
- * [(f -> Bool)] -> a -> Bool
+ * [(* -> Bool)] -> * -> Bool
  * @param xs
  */
 export default curry2((xs, v) => {

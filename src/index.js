@@ -29,11 +29,13 @@ import uniqByKey from './uniqByKey';
 import uniqBy from './uniqBy';
 import flatten from './flatten';
 import join from './join';
+import assign from './assign';
 
 var curry = curry2;
 
 export default {
   ...fp,
+  assign,
   always,
   anyPass,
   allPass,

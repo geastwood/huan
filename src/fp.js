@@ -26,7 +26,7 @@ export var push = curry2((ls, v) => {
 });
 
 // use tap for debugger and console.log
-export var tap = curry3((f, g, v)  => {
+export var tap = curry3((f, g, v) => {
   f(g(v));
   return v;
 });
@@ -65,3 +65,15 @@ export var add = curry2((a, b) => a + b);
 export var slice = curry3((start, end, xs) => xs.slice(start, end));
 export var head = prop(0);
 export var tail = slice(1, Infinity);
+
+export var mergeObj = (o1 = {}, o2) => {
+  if (typeof o2 === 'undefined') {
+    return o1;
+  }
+
+  map(k => {
+    o1[k] = o2[k];
+  }, Object.keys(o2));
+
+  return o1;
+};
