@@ -29,6 +29,11 @@ exports['patch-default-value'] = function(t) {
     {b: 1, c: 0}
   );
   t.deepEqual(
+    patch(0, ['b', 'c'], {b: 1, c: undefined}),
+    {b: 1, c: undefined},
+    'undefined should also be patch'
+  );
+  t.deepEqual(
     tmp = patch({}, ['b', 'c', 'd'])({b: 1}),
     {b: 1, c: {}, d: {}}
   );
