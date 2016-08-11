@@ -1,3 +1,7 @@
+/**
+ * functions exported here will be directly exported, function name as key of `huan`
+ * e.g. huan.isArray = ...
+ */
 import curry2 from './core/curry2';
 import curry3 from './core/curry3';
 import map from './map';
@@ -6,7 +10,8 @@ import isPlainObject  from 'lodash.isplainobject';
 
 export var isObject = isPlainObject;
 export var isArray = v => Object.prototype.toString.call(v) === '[object Array]';
-export var isDefined = v => v === undefined;
+export var isUndefined = v => typeof v === 'undefined';
+
 /**
  * [a] -> [a] -> [a]
  */
@@ -18,7 +23,6 @@ export var concat = curry2((a, b) => a.concat(b));
 export var id = v => v;
 
 export var compose = (...fns) => v => fns.reduceRight((carry, fn) => fn(carry), v);
-export var mcompose = (...fns) => u => fns.reduceRight((v, f) => map(f, v), u);
 
 export var push = curry2((ls, v) => {
   ls.push(v);

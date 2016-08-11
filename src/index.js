@@ -1,8 +1,8 @@
 import * as fp from './fp';
+import assoc from './assoc';
 import groupBy from './groupBy';
 import chunk from './chunk';
 import defaultTo from './defaultTo';
-import difference from './difference';
 import filterObj from './filterObj';
 import flatMap from './flatMap';
 import mapObj from './mapObj';
@@ -30,11 +30,13 @@ import uniqBy from './uniqBy';
 import flatten from './flatten';
 import join from './join';
 import assign from './assign';
+import repeat from './repeat';
 
 var curry = curry2;
 
 export default {
   ...fp,
+  assoc,
   assign,
   always,
   anyPass,
@@ -45,7 +47,6 @@ export default {
   curry2,
   curry3,
   defaultTo,
-  difference,
   filterObj,
   flatMap,
   groupBy,
@@ -66,5 +67,6 @@ export default {
   values,
   uniqByKey,
   uniqBy,
-  flatten
+  flatten,
+  repeat
 };

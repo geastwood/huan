@@ -2,7 +2,7 @@ var huan = require('../lib')['default'];
 var pick = huan.pick;
 
 exports.pick = function(t) {
-  var testObj = {name: 'test', role: 'testObj', prop1: 'prop1', prop2: 'prop2'}
+  var testObj = {name: 'test', role: 'testObj', prop1: 'prop1', prop2: 'prop2'};
   t.deepEqual(pick(['name'], testObj), {name: 'test'});
   t.deepEqual(pick(['name', 'role'], testObj), {name: 'test', role: 'testObj'});
   t.deepEqual(pick(['name', 'role'])(testObj), {name: 'test', role: 'testObj'});

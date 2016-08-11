@@ -2,6 +2,7 @@ import reduceObj from './reduceObj';
 
 /**
  * (a -> Bool) -> {} -> {}
+ * @level 1
  */
 export default function(f, obj) {
   return reduceObj((carry, item) => {

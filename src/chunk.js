@@ -2,6 +2,7 @@ import curry from './core/curry2';
 
 /**
  * Number n => n -> [a] -> [[a]]
+ * @level 0
  */
 export default curry((size, xs) => {
   var length = xs.length, rst = [];

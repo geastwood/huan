@@ -5,6 +5,7 @@ import defaultTo from './defaultTo';
 
 /**
  * String k => (a -> k) -> [a] -> {k: [a]}
+ * @level 1
  */
 export default curry((f, xs) => {
   var ls = [];

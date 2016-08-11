@@ -4,5 +4,6 @@ import filterObj from './filterObj';
 
 /**
  * [k] -> {k: v} -> {k: v}
+ * @level 1
  */
 export default curry((props, obj) => filterObj(item => !contains(props, item.key), obj));
