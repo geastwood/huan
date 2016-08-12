@@ -1,19 +1,13 @@
-import {reduce, isObject, isArray} from './fp';
-import curry from './core/curry2';
-import reduceObj from './reduceObj';
-import map from './map';
+import {reduce} from './fp';
+import always from './always';
 
-var acc = v => (carry, f) => carry || f(v);
-var pred = (carry, status) => carry || status;
-
-export default curry((xs, v) => {
-  return isArray(v) ?
-    reduce(pred, false, map(v_v => {
-      return reduce(acc(v_v), false, xs);
-    }, v)) :
-    isObject(v) ?
-      reduce(pred, false, reduceObj((c, v_v) => {
-        return c.concat(reduce(acc(v_v), false, xs));
-      }, [], v)) :
-      reduce(acc(v), false, xs);
-});
+/**
+ * [(a -> Bool)] -> (a -> Bool)
+ */
+export default (fns = []) => {
+  // no condition -> return false
+  if (fns.length === 0) {
+    return always(false);
+  }
+  return v => reduce((rst, f) => (rst || f(v)), false, fns);
+}
