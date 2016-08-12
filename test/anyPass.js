@@ -1,5 +1,6 @@
 var huan = require('../lib')['default'];
 var anyPass = huan.anyPass;
+var always = huan.always;
 
 var isEven = v => v % 2 === 0;
 var lessThan10 = v => v < 10;
@@ -11,7 +12,7 @@ exports.anyPass = t => {
   var pred = [always(true), always(false)];
 
   t.deepEqual(anyPass(pred)(false), true);
-  t.deepEqual(anyPass([])(true), false);
+  t.deepEqual(anyPass([])(), true);
   t.deepEqual(anyPass([isEven, lessThan10])(5), true);
   t.deepEqual(anyPass([isEven, lessThan10])(12), true);
   t.deepEqual(anyPass([isEven, lessThan10])(11), false);

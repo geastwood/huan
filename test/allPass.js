@@ -30,5 +30,7 @@ exports.allPass = t => {
   eq(allPass([isEven, lessThan10, eq42])(42), false);
   eq(allPass([isEven, lessThan10, huan.complement(eq42)])(8), true);
 
+  eq(allPass([])(), true);
+
   t.done();
 };
