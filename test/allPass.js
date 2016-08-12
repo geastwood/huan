@@ -19,18 +19,16 @@ exports.allPass = t => {
       c: 'c_1'
     };
   var matchShape = [propEqA, propEqB];
+  var eq = t.equal;
 
-  t.equal(allPass(matchShape)(obj), true);
-  t.equal(allPass(matchShape.concat(huan.hasProp('c')))(obj1), true);
-  t.equal(allPass(matchShape.concat(huan.hasProp('c')).concat(obj => {
+  eq(allPass(matchShape)(obj), true);
+  eq(allPass(matchShape.concat(huan.hasProp('c')))(obj1), true);
+  eq(allPass(matchShape.concat(huan.hasProp('c')).concat(obj => {
     return obj.b === 'b_1' && obj.c === 'c_1';
   }))(obj1), true);
 
-  t.done();
-};
+  eq(allPass([isEven, lessThan10, eq42])(42), false);
+  eq(allPass([isEven, lessThan10, huan.complement(eq42)])(8), true);
 
-exports['allPass - advance on [] and {}'] = t => {
-  t.deepEqual(allPass([isEven, lessThan10])(8), true);
-  t.deepEqual(allPass([isEven, lessThan10])([4, 8]), true);
   t.done();
 };
