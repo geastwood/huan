@@ -1,8 +1,9 @@
 import curry2 from './core/curry2';
+import {reduce} from './fp';
 
 export default curry2(function(f, obj) {
-  return Object.keys(obj).reduce((carry, key) => {
+  return reduce((carry, key) => {
     carry[key] = f({key, value: obj[key]});
     return carry;
-  }, {});
+  }, {}, Object.keys(obj));
 });

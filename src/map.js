@@ -1,12 +1,13 @@
 import isPlainObject from 'lodash.isplainobject';
+import {reduce} from './fp';
 import curry from './core/curry2';
 
 /**
- * @level 0
+ * @level 1
  */
 export default curry((f, u) => {
-  return isPlainObject(u) ? Object.keys(u).reduce((carry, key) => {
+  return isPlainObject(u) ? reduce((carry, key) => {
     carry[key] = f(u[key]);
     return carry;
-  }, {}) : u.map(v => f(v));
+  }, {}, Object.keys(u)) : u.map(v => f(v));
 });
