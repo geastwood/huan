@@ -1,5 +1,11 @@
 var chunk = require('../lib/')['default'].chunk;
 
+exports.readme = t => {
+  var arr = [1, 2, 3, 4, 5];
+  t.deepEqual(chunk(2)(arr), [[1, 2], [3, 4], [5]]);
+  t.done();
+};
+
 exports.chunk = t => {
   var arr = [1, 2, 3, 4, 5, 6, 7];
 
@@ -11,7 +17,7 @@ exports.chunk = t => {
 
   t.deepEqual(
     chunk(2)(arr),
-    [[1,2], [3,4], [5,6], [7]]
+    [[1, 2], [3, 4], [5, 6], [7]]
   );
 
   t.deepEqual(

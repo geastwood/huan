@@ -1,17 +1,8 @@
-remove
-
 # TODO
 
-* ~~make `mapObj` and `reduceObj` curryable~~
-* ~~join for pointfree~~
-* ~~flatten~~
-* filter
-* add a ctor to make constructor work under compose
-* update fp.map to remove since second arguments
-* add flip on function to reverse the arguments (first two)
+- [ ] complete code examples in README
+
 * research safeGet
-* ~~add `uniqueBy`~~
-* ~~add `head` and `tail`~~ and add capitalize
 ```
 var safeGet = curry((propName, dft, obj) => {
   var v;

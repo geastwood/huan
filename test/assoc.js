@@ -15,6 +15,8 @@ exports.assoc = t => {
   de(assoc(['k1', 'k2'], [v1, v1]), {k1: 'v1', k2: 'v1'});
   de(assoc(['k1', 'k2'], [v1, v1]), {k1: 'v1', k2: 'v1'});
   de(assoc([k1, k2, k3, k4], [v1, v1]), {k1: 'v1', k2: 'v1', k3: undefined, k4: undefined});
+  de(assoc([k1], [v1, v1]), {k1: 'v1'});
+  de(assoc([], []), {});
   t.done();
 };
 
