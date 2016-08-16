@@ -1,6 +1,8 @@
 # TODO
 
 - [ ] complete code examples in README
+- [ ] write test for reduce.js
+- [ ] extract mergeObj from fp.js
 
 * research safeGet
 ```
