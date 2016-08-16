@@ -1,7 +1,5 @@
 import reduceObj from './reduceObj';
 /**
- * (a -> Boolean) -> {String: a} -> [a]
+ * ({k:v} -> Boolean) -> {k:v} -> [v]
  */
-export default (f, obj) => {
-  return reduceObj((carry, v) => carry.concat((true === f(v)) ? v.value : []), [], obj);
-};
+export default (f, obj) => reduceObj((carry, v) => carry.concat((true === f(v)) ? v.value : []), [], obj);
