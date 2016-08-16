@@ -6,6 +6,4 @@ import reduceObj from './reduceObj';
  * @param obj
  * @returns {*}
  */
-export default obj => {
-  return reduceObj((carry, v) => carry.concat(v.value), [], obj);
-};
+export default obj => reduceObj((carry, {value}) => carry.concat(value), [], obj);
