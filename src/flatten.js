@@ -1,5 +1,5 @@
-import curry from './core/curry2';
-import {reduce, concat, isArray} from './fp'
+import {isArray} from './fp';
+import reduce from './reduce';
 
 // TODO support later ArrayLike
 export default function flatten(xs) {

@@ -1,5 +1,6 @@
 import curry from './core/curry2';
-import {id, tap, push, compose, contains, reduce, condition} from './fp';
+import {id, tap, push, compose, contains, condition} from './fp';
+import reduce from './reduce';
 import always from './always';
 import defaultTo from './defaultTo';
 

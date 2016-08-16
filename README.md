@@ -3,7 +3,7 @@
 ## Reflection
 `* -> Bool`
 
-### isObject
+### isPlainObject
 check parameter is an object, delegate to lodash.isPlainObject which is,
     > Checks if value is a plain object, that is, an object created by the Object constructor or one with a [[Prototype]] of null.
 

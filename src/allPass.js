@@ -1,4 +1,4 @@
-import {reduce} from './fp';
+import reduce from './reduce';
 import always from './always';
 
 /**

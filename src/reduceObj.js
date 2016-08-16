@@ -1,4 +1,4 @@
-import {reduce} from './fp';
+import reduce from './reduce';
 import curry3 from './core/curry3';
 
 export default curry3((acc, init, obj) => {

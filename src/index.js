@@ -16,6 +16,7 @@ import pick from './pick';
 import pluck from './pluck';
 import patch from './patch';
 import project from './project';
+import reduce from './reduce';
 import reduceObj from './reduceObj';
 import valueIf from './valueIf';
 import values from './values';
@@ -62,6 +63,7 @@ export default {
   pluck,
   project,
   patch,
+  reduce,
   reduceObj,
   valueIf,
   values,

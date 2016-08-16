@@ -8,7 +8,6 @@ import map from './map';
 
 import isPlainObject  from 'lodash.isplainobject';
 
-export var isObject = isPlainObject;
 export var isArray = v => Object.prototype.toString.call(v) === '[object Array]';
 export var isUndefined = v => typeof v === 'undefined';
 
@@ -43,7 +42,6 @@ export var prop = curry2((prop, obj) => obj[prop]);
 export var hasProp = curry2((propName, obj) => (typeof prop(propName, obj) !== 'undefined'));
 export var propEq = curry3((propName, v, obj) => prop(propName, obj) === v);
 
-export var reduce = curry3((acc, init, xs) => xs.reduce(acc, init));
 export var filter = curry2((f, u) => u.filter(v => f(v)));
 export var chain = curry2((f, m) => m.chain(f));
 

@@ -1,5 +1,5 @@
 import curry from './core/curry2';
-import {reduce} from './fp';
+import reduce from './reduce';
 
 /**
  * split xs into two groups which are packed into an array

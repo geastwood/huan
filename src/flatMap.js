@@ -1,5 +1,6 @@
 import curry from './core/curry2';
-import {concat, reduce} from './fp';
+import reduce from './reduce';
+import {concat} from './fp';
 
 /**
  * (a -> [a]) -> [a] -> [a]
