@@ -1,3 +1,3 @@
-import curry from './core/curry2';
+import curry from './core/curry2'
 
-export default curry((glue, xs) => xs.join(glue));
+export default curry((glue, xs) => xs.join(glue))

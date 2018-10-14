@@ -1,6 +1,6 @@
-import reduceObj from './reduceObj';
+import reduceObj from './reduceObj'
 
 /**
  * {k:v} -> [[k,v]]
  */
-export default reduceObj((carry, {key, value}) => carry.concat([[key, value]]))([]);
+export default reduceObj((carry, { key, value }) => carry.concat([[key, value]]))([])

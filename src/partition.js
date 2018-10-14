@@ -1,5 +1,5 @@
-import curry from './core/curry2';
-import reduce from './reduce';
+import curry from './core/curry2'
+import reduce from './reduce'
 
 /**
  * split xs into two groups which are packed into an array
@@ -11,8 +11,12 @@ import reduce from './reduce';
  * (a -> Bool) -> [a] -> [[a], [a]]
  */
 export default curry((f, xs) => {
-  return reduce((carry, v) => {
-    ((true === f(v)) ? carry[0] : carry[1]).push(v);
-    return carry;
-  }, [[], []], xs);
-});
+    return reduce(
+        (carry, v) => {
+            ;(true === f(v) ? carry[0] : carry[1]).push(v)
+            return carry
+        },
+        [[], []],
+        xs,
+    )
+})
