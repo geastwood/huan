@@ -1,4 +1,4 @@
-import {mergeObj} from './fp';
+import { mergeObj } from './fp'
 
 /**
  * [{k:v}] -> [{k:v}]
@@ -7,5 +7,4 @@ import {mergeObj} from './fp';
  *
  * @level 1
  */
-export default (o1, ...os) => os.reduce(mergeObj, o1);
-
+export default (o1, ...os) => os.reduce(mergeObj, o1)
